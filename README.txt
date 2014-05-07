@@ -1,27 +1,26 @@
-Parallelism 1.1 by HTML5 UP
+Big Picture 1.0 by HTML5 UP
 html5up.net | @n33co
 Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 
 
-It's done! Parallelism was an idea I mocked up a few months ago but, due to other
-committments, didn't get around to putting to code until recently. Different to
-my more general-purpose freebies, this one's specifically built for portfolio use
-but still delivers quite a bit of customizability (via CSS and a number of settings).
-For more on how it works and how to make the most of it, jump on down to the 
-"Instructions" section.
+This is Big Picture, a simple, single page responsive site template by HTML5 UP.
 
-Demo images* are courtesy of the supremely talented photographer Felicia Simion.
-If you like photography or just enjoy being blown away by awesome stuff, check
-out her portfolio for more stunning images:
+So I've been on a single page kick as of late, partly because I'm lazy, but
+mostly because they kick ass for experimentation. In this case, Big Picture
+makes heavy use of my (tentatively named and soon to be released) "scrollgress"
+and "scrollwatch" jQuery plugins to pull off some interesting effects as you
+scroll around the page. In addition to said interesting effects, Big Picture
+also includes a nice lightbox-style gallery, styling for basic page elements,
+a handy centralized settings area, and thoroughly commented code for your editing
+pleasure (with instructions! -- see below).
 
-http://ineedchemicalx.deviantart.com/
+Many thanks to my good friends Felicia Simion (ineedchemicalx.deviantart.com)
+and Michael Domaradzki (mdomaradzki.deviantart.com) for allowing me to use
+their amazing photos in Big Picture's demo*.
 
-* Not included with this download (replaced with generic placeholders). Note that I only
-have permission to use her images in my on-site demos, so do NOT download and use any of
-Felicia's work without her explicit permission.
-
-As usual, feedback, bug reports, and comments are not only welcome, but strongly
-encouraged :)
+(* Not included with this download (replaced with generic placeholder images), as
+I only have permission to use their work in my own on-site demos. Do NOT download
+or use any of their work without prior explicit permission.)
 
 
 AJ
@@ -31,202 +30,130 @@ n33.co @n33co dribbble.com/n33
 
 Instructions
 ============
+
+	Being a single pager, Big Picture should be way simpler to work with than
+	some of the heavier stuff I've released in the past. In fact, aside from
+	a main page <header> and <footer>, it's pretty much just a stack of "main"
+	<section> elements that follow the same basic pattern:
+
+		<section id="foobar" class="main">
+			<div class="content container">
+				<header>
+					<h2>Foobar</h2>
+				</header>
+				...
+			</div>
+		</section>
+
+	The section can then be assigned a style class to determine its basic
+	look (and, in some cases, its behavior):
 	
-
-	Terminology
-	-----------
-	
-		- Item: A generic container of stuff. Said stuff can be a thumbnail, the actual
-		  page header, or whatever else you deem item worthy. Items can vary in width but
-		  are all the same height (230px by default, but you can change this with a setting).
-		  
-		- Thumb: A special type of item that contains a thumbnail image and a title. Short
-		  for thumbnail. No relation to actual nails.
-		  
-		- Reel: A whole bunch of items strung together, and the main point of interaction
-		  for users.
-	
-
-	How it Works
-	------------
-	
-		1. You (the user) add a bunch of items to the reel. Items must be assigned a width
-		   (in pixels) using the "data-width" attribute. A few examples:
-
-				Generic
-				-------
-
-					<div class="item" data-width="300">
-						This is a generic item. Put whatever you want here.
-					</div>
-					
-					(width = whatever you want)
-					
-				Thumbnail
-				---------
-				
-					<article class="item thumb" data-width="275">
-						<h2>Image Title</h2>
-						<a href="path/to/fullsize.jpg"><img src="path/to/thumbnail.jpg" alt=""></a>
-					</article>
-				
-					(width = width of the thumbnail image)
-				
-				Page Header (which, by the way, is entirely optional)
-				-----------------------------------------------------
-
-					<div id="header" class="item" data-width="400">
-						<h1>Parallelism</h1>
-						<p>A responsive portfolio site<br />
-						template by HTML5 UP</p>
-					</div>
-					
-					(width = whatever you want)
-
-		   Congratulations. You now have a reel full of items.
-
-		2. Parallelism looks at the window, figures out how many rows it can fit in the
-		   available (vertical) space, then breaks up the reel into that many rows.
-		 
-		3. With the reel broken up, Parallelism goes through and does a bit of scaling
-		   on each item to ensure the widths of each row are identical.
-		   
-		4. Profit !@#!#%$(!$%(*
-
-		So yeah, pretty simple. Also, tons of settings to mess with if you're into that
-		sort of thing (below).
-
-
-	Notes
-	-----
-	
-		- Scrolling is handled in 3 ways:
-		
-			1. Scrolling up/down using the mouse wheel (down = scroll right, up = scroll left)
-			2. Using the left/right arrow keys ("Scroll Keys")
-			3. Moving the mouse cursor to the far left or far right of the screen ("Scroll Zones")
-	
-			Methods #2 and #3 can be disabled and customized using settings (below). Method #1
-			is always enabled.
-	
-		- If you don't have enough items to require scrolling, the reel will just be centered on
-		  the screen.
-		
-		- Rows will automatically factor when the viewport is resized.
-
-		- All modern desktop/mobile browsers are supported (as well as IE as far back as 8, though
-		  7 is still pretty usable).
-	
-
-	Settings
-	--------
-
-		Put these at the top of js/config.js to override the defaults.
-
-		popupOverlayColor
-			Popup overlay color (default: '#1a1f2c')
-		
-		popupOverlayOpacity
-			Popup overlay opacity (default: 0.75)
-
-		autoStyleMobile
-			If true, mobile mode will get some automatic styling (default: true)
-		
-		centerVertically
-			If true, reel will be vertically centered (default: true)
-
-		introDelay
-			Delay (in ms) before showing the reel (default: 600)
+		style1
+			Centered content with an oversized <h2>. Works best when
+			paired with a background image or color.
 			
-		introSpeed
-			Speed (in ms) at which to fade in reel (default: 750)
+		style2 left
+			Content in a box, anchored to the left side of the window. Works
+			best when paired with a background image or color. If you have
+			"useSectionTransitions" turned on in your settings, the box will
+			slide into view from the left.
+						
+		style2 right
+			Content in a box, anchored to the right side of the window. Works
+			best when paired with a background image or color. If you have
+			"useSectionTransitions" turned on in your settings, the box will
+			slide into view from the right.
+	
+		style3 primary
+			Used for generic content. Set against the primary background
+			color (default is white).
 			
-		itemHeight
-			Height (in px) of items (default: 230)
+		style3 secondary
+			Used for generic content. Set against the secondary background
+			color (default is a light gray).
 		
-		itemWidth
-			Default width (in px) of width (default: 300)
+	Oh, and there are a few (well, two) optional modifier classes you can
+	tack on for additional effects:
+	
+		dark
+			Flips the content's color scheme so it shows up better
+			against darker background images and colors.
 			
-		marginBottom	
-			Margin (in px) to preserve at the bottom of the viewport (default: 40)
-			
-		marginTop
-			Margin (in px) to preserve at the top of the viewport (default: 0)
-			
-		maxRows
-			Maximum number of rows (default: 3)
-		
-		minRows
-			Minimum number of rows (default: 1)
-		
-		padding
-			Padding (in px) between items (0 = no padding) (default: 10)
-		
-		paddingColor
-			Padding color (default: '#fff')
-		
-		resetScroll
-			If true, reel scroll will reset on page refresh (default: true)
-		
-		scrollFactor
-			Scales the scroll delta (1 = normal, 2 = double, 0.5 = half, etc.) (default: 1)
-		
-		useScrollKeys
-			If true, the left/right arrow keys will scroll the reel (default: true)
-		
-		scrollKeyAmount
-			Scroll amount when using keys (default: 50)
+		fullscreen
+			Makes the section fill the entire window (only if "useFullScreen"
+			is enabled in your settings).
 
-		scrollWheelTarget
-			Determines where scrollwheel events should be captured ('window' or 'reel') (default: 'window')
-		
-		useScrollZones
-			If true, moving the cursor to the leftmost/rightmost edges of the reel will scroll it (default: true)
-		
-		scrollZoneAmount
-			Scroll amount when using scroll zones (default: 10)
-		
-		scrollZoneDelay
-			Time (in ms) to wait between scrolls when the cursor is in a scroll zone (default: 20)
-		
-		scrollZoneWidth
-			Width of scroll zones (default: 40)
-		
-		thumbDelay
-			Delay (in ms) before showing thumbnails (default: 1200)
-		
-		thumbDelaySpread
-			Spread (in ms) to randomly stagger thumbnails (0 = don't stagger) (default: 1500)
-		
-		thumbSpeed
-			Speed (in ms) at which to fade in thumbnails (default: 750)
-		
-		useBlurFilter
-			If true, page will blur slightly when the popup is displayed (webkit only) (default: true)
+
+
+Settings
+=========
+
+	A handful of settings can be found at the top of js/init.js to tweak
+	Big Picture's behavior:
+
+		useFullScreen
+			If true, main sections with the "fullscreen" class will be resized to
+			fill the window. If false, they'll be left alone. Default is true.
+			
+			* This defaults to false on mobile devices.
+
+		useSectionTransitions
+			If true, section transitions (the stuff that happens when you scroll)
+			will be used. If false, no transitions will be used and stuff will
+			just kind of .. sit there. Default is true.
+
+			* This defaults to false on touch-enabled devices because they
+			  don't trigger the "scroll" event until *after* you lift your finger
+			  off the screen. Kind of a problem since scrollwatch/scrollgress rely
+			  on that event to do stuff.
+			  
+			* This *also* defaults to false in IE9 (and lower) since it doesn't
+			  support CSS transitions and shit just looks weird without them.
+
+		fadeInSpeed
+			Speed at which to fade in the page on load (in ms). Default is 1000.
+
+
+
+Other Stuff
+===========
+
+	- If you don't like the way images are tinted, either change "images/overlay.png"
+	  to something else, or remove all references to it from css/style.css.
+
+	- If you plan to keep support for IE8 (what little there is), don't forget to update
+	  css/ie/ie8.css as you change other stuff.
+	  
+	- skelJS (frame this thing is built on): http://skeljs.org
+	
+	- Poptrox (powers the lightbox-style gallery): http://github.com/n33/jquery.poptrox
 
 
 
 Credits
 =======
 
-
 	Images (Demo Only)
 		Felicia Simion (http://ineedchemicalx.deviantart.com/)
-		- Pasadena (http://ineedchemicalx.deviantart.com/art/Pasadena-357650036)
-		- Your really got me (http://ineedchemicalx.deviantart.com/art/You-really-got-me-345249340)
-		- Ad Infinitum (http://ineedchemicalx.deviantart.com/art/Ad-infinitum-354203162)
-		- Different. (http://ineedchemicalx.deviantart.com/art/Different-353708988)
-		- Elysium (http://ineedchemicalx.deviantart.com/art/Elysium-355393900)
-		- Kingdom of the Wind (http://ineedchemicalx.deviantart.com/art/Kingdom-of-the-Wind-348268044)
-		- The Pursuit (http://ineedchemicalx.deviantart.com/art/The-Pursuit-355003425)
-		- Boundless (http://ineedchemicalx.deviantart.com/art/Boundless-291831118)
-		- The Spectators (http://ineedchemicalx.deviantart.com/art/The-Spectators-342155982)
-		
+			"The Swallow Song" (http://ineedchemicalx.deviantart.com/art/The-Swallow-Song-414742090)
+			"Mind is a clear stage" (http://ineedchemicalx.deviantart.com/art/Mind-is-a-clear-stage-375431607)
+			"The Anonymous Red" (http://ineedchemicalx.deviantart.com/art/The-Anonymous-Red-428927280)
+			"The sparkling shell" (http://ineedchemicalx.deviantart.com/art/The-sparkling-shell-423256221)
+			"Carry on" (http://ineedchemicalx.deviantart.com/art/Carry-on-421878967)
+
+		Michael Domaradzki (http://mdomaradzki.deviantart.com/)	
+			"Vine Country" (http://mdomaradzki.deviantart.com/art/Vine-Country-381350120)
+			"Airchitecture II" (http://mdomaradzki.deviantart.com/art/Airchitecture-II-385212804)
+			"Bent IX" (http://mdomaradzki.deviantart.com/art/Bent-IX-372298067)
+			"Air Lounge" (http://mdomaradzki.deviantart.com/art/Air-Lounge-385212062)
+
 	Icons
 		Font Awesome (http://fortawesome.github.com/Font-Awesome/)
 
 	Other
 		jQuery (jquery.com)
 		html5shiv.js (@afarkas @jdalton @jon_neal @rem)
-		jquery.poptrox (n33.co)
+		CSS3 PIE (http://css3pie.com/)
+		background-size polyfill (https://github.com/louisremi/background-size-polyfill)
+		jquery.poptrox, other misc plugins (n33.co)
 		skelJS (skeljs.org)
